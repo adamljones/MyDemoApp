@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-
   subject { page }
 
   shared_examples_for "all static pages" do
@@ -12,8 +11,7 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path }
-    let(:heading)    { 'Sample App' }
-    let(:page_title) { '' }
+    setup_heading_and_title('Sample App', '')
 
     it_should_behave_like "all static pages"
     it { should_not have_title('| Home') }
@@ -21,20 +19,17 @@ describe "Static pages" do
 
   describe "Help page" do
     before { visit help_path }
-    let(:heading)    { 'Help' }
-    let(:page_title) { 'Help' }
+    setup_heading_and_title('Help', 'Help')
   end
 
   describe "About page" do
     before { visit about_path }
-    let(:heading)    { 'About' }
-    let(:page_title) { 'About Us' }
+    setup_heading_and_title('About', 'About Us')
   end
 
   describe "Contact page" do
     before { visit contact_path }
-    let(:heading)    { 'Contact Us' }
-    let(:page_title) { 'Contact Us' }
+    setup_heading_and_title('Contact Us', 'Contact Us')
   end
 
   it "should have the right links on the layout" do

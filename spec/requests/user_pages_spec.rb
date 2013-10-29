@@ -32,14 +32,7 @@ describe "User pages" do
     end
 
     describe "with valid information" do
-      before do
-        fill_in "Firstname",        with: "Example"
-        fill_in "Lastname",         with: "Example"
-        fill_in "Email",            with: "user@example.com"
-        fill_in "Businesscategory", with: "IT"
-        fill_in "Password",         with: "foobar"
-        fill_in "Confirmation",     with: "foobar"
-      end
+      before { valid_signup }
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)

@@ -13,6 +13,20 @@ def valid_signin(user)
   click_button "Sign in"
 end
 
+def valid_signup()
+  fill_in "Firstname",        with: "Example"
+  fill_in "Lastname",         with: "Example"
+  fill_in "Email",            with: "user@example.com"
+  fill_in "Businesscategory", with: "IT"
+  fill_in "Password",         with: "foobar"
+  fill_in "Confirmation",     with: "foobar"
+end
+
+def setup_heading_and_title(heading, title)
+  let(:heading)    { heading }
+  let(:page_title) { title }
+end
+
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     expect(page).to have_selector('div.alert.alert-error', text: message)
