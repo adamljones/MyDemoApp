@@ -4,6 +4,11 @@ ruby '1.9.3'
 
 gem 'sass-rails', '4.0.0'
 gem 'rails', '4.0.0'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -29,9 +34,6 @@ group :test do
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
-
-gem 'bootstrap-sass', '2.3.2.0'
-gem 'bcrypt-ruby', '3.0.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.0'
 gem 'jquery-rails', '3.0.4'
