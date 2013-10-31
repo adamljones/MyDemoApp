@@ -88,6 +88,7 @@ describe "User pages" do
       it { should have_content("Update your profile") }
       it { should have_title("Edit user") }
       it { should have_link('change', href: 'http://gravatar.com/emails') }
+      it { should have_selector("a[href='http://gravatar.com/emails'][target='_blank']") }
     end
 
     describe "with invalid information" do
@@ -115,6 +116,18 @@ describe "User pages" do
       specify { expect(user.reload.firstname).to eq new_firstname }
       specify { expect(user.reload.lastname).to eq new_lastname }
       specify { expect(user.reload.email).to eq new_email }
+    end
+
+    describe "forbidden attributes" do
+      let(:params) do
+        { user: { admin: true, password: user.password,
+                  password_confirmation: user.password } }
+      end
+      before do
+        sign_in user, no_capybara: true
+        patch user_path(user), params
+      end
+      specify { expect(user.reload).not_to be_admin }
     end
   end
 
