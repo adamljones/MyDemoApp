@@ -19,7 +19,7 @@ def valid_signup()
   fill_in "Email",            with: "user@example.com"
   fill_in "Businesscategory", with: "IT"
   fill_in "Password",         with: "foobar"
-  fill_in "Confirmation",     with: "foobar"
+  fill_in "Confirm Password",     with: "foobar"
 end
 
 def setup_heading_and_title(heading, title)
